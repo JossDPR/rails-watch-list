@@ -1,0 +1,13 @@
+<h1>Lists#show</h1>
+<p>Find me in app/views/lists/show.html.erb</p>
+
+<%# <%= render "layouts/form_bookmark", partials: @list, @bookmark %>
+
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie %>
+  <%= f.button :submit %>
+<% end %>
+
+
+<%= link_to "Retour au menu", lists_path %>
