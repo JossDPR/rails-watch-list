@@ -1,13 +1,13 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<h1><%= @list.name %></h1>
 
-<%# <%= render "layouts/form_bookmark", partials: @list, @bookmark %>
 
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie %>
-  <%= f.button :submit %>
+<% @list.bookmarks.each do |bookmark| %>
+  <%= bookmark.comment %>
 <% end %>
+
+<%= cl_image_tag @list.image.key, width: 200, heigh: 200%>
+
+<%= link_to "Ajouter un bookmark", new_list_bookmark_path(@list) %>
 
 
 <%= link_to "Retour au menu", lists_path %>
